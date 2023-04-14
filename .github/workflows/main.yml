@@ -73,7 +73,7 @@ jobs:
       - name: Update Glue job
         run: |
           aws glue update-job --job-name "Traffic ETL" --job-update \
-            "Role=AWSGlueServiceRole-TrafficCrawler,Command={Name=glueetl,ScriptLocation=s3://cicdbuckett/traffic_${GITHUB_SHA}.py},Connections={Connections=redshift}" \
+            "Role=aws-glue-role-new,Command={Name=glueetl,ScriptLocation=s3://cicdbuckett/traffic_${GITHUB_SHA}.py},Connections={Connections=redshift}" \
             --region us-east-1
       
       # Remove stored credentials file
